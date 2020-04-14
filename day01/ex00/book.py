@@ -3,11 +3,7 @@ class Book:
 		self.name = name
 		self.last_update = last_update
 		self.creation_date = creation_date
-		self.recipes_list = recipe_list#{
-			#	'starte':[],
-			#	'lunch':[],
-			#	'dessert':[],
-#		}
+		self.recipes_list = recipe_list
 
 	def get_recipe_by_name(self, name):
 		"""Print a recipe with the name `name` and return the instance"""
@@ -25,4 +21,6 @@ class Book:
 
 	def add_recipe(self, recipe):
 		"""Add a recipe to the book and update last_update""" 
-		pass
+		for key, val in self.recipes_list.items():
+			if key == recipe.recipe_type:
+				self.recipes_list[key][recipe.name] = recipe
